@@ -2,48 +2,42 @@
 class Node:
     def __init__(self,data):
         self.data = data
-        self.next = None
-    
-class LinkedList:
+        self.address = None
+
+
+class Linklist:
     def __init__(self):
-        self.head=None
+        self.head = None
 
 
-    def SearchinLinkedList(self,data):
-        current = self.head
-
-        if current == None:
-            print("NO element in List.")
+    def createNodeatFirstPos(self, data):
+        new_node  = Node(data)
+        new_node.address = self.head
+        self.head = new_node
+    
+    def insertNodeatLastPos(self, data):
+        new_node = Node(data)
+        if self.head == None:
+            self.head = new_node
         else:
-            while current != None:
-                if current.data == data:
-                    return True
-                current = current.next
-            return False
+            tmp = self.head
 
 
 
-    def printlist(self):
+    def display(self):
+        print("here is our LinkList : ",end= "\n")
         tmp = self.head
-        while(tmp):
-            print(tmp.data,end=" ")
-            tmp = tmp.next
-        print("\n")
+        while tmp!= None:
+            print(tmp.data, end = "-->")
+            tmp = tmp.address
 
-if __name__ == "__main__":
-    ll = LinkedList()
-    ll.head = Node(1)
-    second = Node(2)
-    third = Node(3)
+    
 
-    ll.head.next = second
-    second.next = third
-
-    ll.printlist()
-    ele = int(input("Enter element needs to be search : "))
-    if ll.SearchinLinkedList(ele):
-        print("Found")
-    else:
-        print("Not found")
+if __name__ == "__main__" :
+    list = Linklist()
+    list.createNodeatFirstPos(2)
+    list.createNodeatFirstPos(3)
+    list.createNodeatFirstPos(4)
+    list.display()
 
     
