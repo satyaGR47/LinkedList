@@ -14,14 +14,6 @@ class Linklist:
         new_node  = Node(data)
         new_node.address = self.head
         self.head = new_node
-    
-    def insertNodeatLastPos(self, data):
-        new_node = Node(data)
-        if self.head == None:
-            self.head = new_node
-        else:
-            tmp = self.head
-
 
 
     def display(self):
